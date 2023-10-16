@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 const AllPlayers = () => {
   const [players, setPlayers] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/allPlayers")
+    fetch("https://bss-backend.vercel.app/allPlayers")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

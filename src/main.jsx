@@ -32,7 +32,7 @@ const router = createBrowserRouter([
       {
         path : "/allPlayer/:id",
         element : <SinglePlayers/>,
-        loader : ({params}) => fetch(`http://localhost:5000/allPlayers/${params.id}`)
+        loader : ({params}) => fetch(`https://bss-backend.vercel.app/allPlayers/${params.id}`)
         
       }
     ]
