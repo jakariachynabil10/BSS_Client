@@ -9,6 +9,7 @@ import {
 import Home from './Home/Home.jsx';
 import AllPlayers from './AllPlayers/AllPlayers.jsx';
 import Ranking from './Ranking/Ranking.jsx';
+import SinglePlayers from './AllPlayers/SinglePlayers.jsx';
 
 
 const router = createBrowserRouter([
@@ -28,6 +29,12 @@ const router = createBrowserRouter([
         path : "/ranking",
         element : <Ranking/>
       },
+      {
+        path : "/allPlayer/:id",
+        element : <SinglePlayers/>,
+        loader : ({params}) => fetch(`http://localhost:5000/allPlayers/${params.id}`)
+        
+      }
     ]
   },
 

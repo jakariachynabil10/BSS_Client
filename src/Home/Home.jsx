@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [players, setPlayers] = useState([]);
@@ -18,17 +19,21 @@ const Home = () => {
         {/* head */}
         <thead>
           <tr>
-            <th></th>
+            <th>Rank</th>
             <th>Name</th>
-            <th>Job</th>
-            <th>Favorite Color</th>
-            <th></th>
+            <th>PL</th>
+            <th>W</th>
+            <th>D</th>
+            <th>L</th>
+            <th>GA</th>
+            <th>GF</th>
+            <th>PTS</th>
           </tr>
         </thead>
         <tbody>
           {/* Mapping through players array and rendering each player */}
           {players.map((player, index) => {
-            const { name, dateOfBirth, img } = player;
+            const { name, dateOfBirth, img, _id } = player;
             return (
               <tr key={index}>
                 <td>{index + 1}</td>
@@ -43,21 +48,31 @@ const Home = () => {
                       </div>
                     </div>
                     <div>
-                      <div className="font-bold">{name}</div> {/* Use player's name */}
+                     <Link to={`/allPlayer/${_id}`}>
+                     <div className="font-bold">{name}</div>
+                     </Link> {/* Use player's name */}
                       <div className="text-sm opacity-50">Date of Birth: {dateOfBirth}</div>
                     </div>
                   </div>
                 </td>
                 <td>
-                  Zemlak, Daniel and Leannon
-                  <br />
-                  <span className="badge badge-ghost badge-sm">
-                    Desktop Support Technician
-                  </span>
+                  0
                 </td>
-                <td>Purple</td>
+                <td>0</td>
                 <th>
-                  <button className="btn btn-ghost btn-xs">details</button>
+                 0
+                </th>
+                <th>
+                 0
+                </th>
+                <th>
+                 0
+                </th>
+                <th>
+                 0
+                </th>
+                <th>
+                 0
                 </th>
               </tr>
             );

@@ -12,10 +12,11 @@ const Navbar = () => {
         <Link to="/allPlayers">All Players</Link>
       </li>
       <li className="hover:text-blue-500">
-        <Link to="ranking">Player Ranking</Link>
+        <Link to="/ranking">Player Ranking</Link>
       </li>
     </>
   );
+
   return (
     <div className="navbar bg-[#0E1E32] text-white lg:px-16">
       <div className="navbar-start">
@@ -46,10 +47,17 @@ const Navbar = () => {
         <a className="btn btn-ghost text-white text-xl">Black Stars Club</a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="lg:flex justify-center items-center font-bold gap-5  px-1">{navItems}</ul>
+        <ul className="lg:flex justify-center items-center font-bold gap-5  px-1">
+          {navItems}
+        </ul>
       </div>
       <div className="navbar-end">
-        <Link className="btn bg-[#DA6A2A] border-none text-white font-bold hover:bg-opacity-30">Join with Us</Link>
+        <Link
+          to="/join"
+          className="btn bg-[#DA6A2A] border-none text-white font-bold hover:bg-opacity-30"
+        >
+          Join with Us
+        </Link>
       </div>
     </div>
   );
