@@ -40,7 +40,7 @@ const ResultSubmit = () => {
 
     const url = `http://localhost:5000/updatePlayer/${data._id}`;
     fetch(url, {
-      method: "POST",
+      method: "PATCH",
       headers: {
         "content-type": "application/json",
       },
