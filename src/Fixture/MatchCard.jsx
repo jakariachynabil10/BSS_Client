@@ -1,12 +1,14 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 
-const Fixture = () => {
+
+const MatchCard = () => {
     return (
         <div>
-            <h1>Fixture</h1>
+            <h1>sfd</h1>
+           
         </div>
     );
 };
 
-export default Fixture;
+export default MatchCard;

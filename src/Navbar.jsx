@@ -44,7 +44,7 @@ const Navbar = () => {
             {navItems}
           </ul>
         </div>
-        <a className="btn btn-ghost text-white text-xl">Black Stars Club</a>
+        <a className="btn btn-ghost text-white text-lg">Black Stars Club</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="lg:flex justify-center items-center font-bold gap-5  px-1">

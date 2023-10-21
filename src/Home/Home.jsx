@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import ResultSubmit from "../Submit/ResultSubmit";
 
 const Home = () => {
   const [players, setPlayers] = useState([]);
@@ -28,6 +29,7 @@ const Home = () => {
             <th>GA</th>
             <th>GF</th>
             <th>PTS</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -48,31 +50,27 @@ const Home = () => {
                       </div>
                     </div>
                     <div>
-                     <Link to={`/allPlayer/${_id}`}>
-                     <div className="font-bold">{name}</div>
-                     </Link> {/* Use player's name */}
-                      <div className="text-sm opacity-50">Date of Birth: {dateOfBirth}</div>
+                      <Link to={`/allPlayer/${_id}`}>
+                        <div className="font-bold">{name}</div>
+                      </Link>{" "}
+                      {/* Use player's name */}
+                      <div className="text-sm opacity-50">
+                        Date of Birth: {dateOfBirth}
+                      </div>
                     </div>
                   </div>
                 </td>
-                <td>
-                  0
-                </td>
                 <td>0</td>
+                <td>0</td>
+                <th>0</th>
+                <th>0</th>
+                <th>0</th>
+                <th>0</th>
+                <th>0</th>
                 <th>
-                 0
-                </th>
-                <th>
-                 0
-                </th>
-                <th>
-                 0
-                </th>
-                <th>
-                 0
-                </th>
-                <th>
-                 0
+                  <Link to={`/singlePlayer/${_id}`}>
+                    <button className="btn btn-primary">Submit</button>
+                  </Link>
                 </th>
               </tr>
             );

@@ -10,6 +10,7 @@ import Home from './Home/Home.jsx';
 import AllPlayers from './AllPlayers/AllPlayers.jsx';
 import Ranking from './Ranking/Ranking.jsx';
 import SinglePlayers from './AllPlayers/SinglePlayers.jsx';
+import ResultSubmit from './Submit/ResultSubmit.jsx';
 
 
 const router = createBrowserRouter([
@@ -34,6 +35,12 @@ const router = createBrowserRouter([
         element : <SinglePlayers/>,
         loader : ({params}) => fetch(`https://bss-backend.vercel.app/allPlayers/${params.id}`)
         
+      },
+      {
+        path : "/singlePlayer/:id",
+        element : <ResultSubmit/>,
+        loader : ({params}) => fetch(`https://bss-backend.vercel.app/allPlayers/${params.id}`)
+
       }
     ]
   },
