@@ -81,7 +81,7 @@ const Home = () => {
                 <th>{GoalsAgainst || 0}</th>
                 <th>{GoalDifference || 0}</th>
                 <th>{PTS || 0}</th>
-                <Link to={`/singlePlayer/${_id}`}>
+                <Link className="flex justify-center items-center pt-8" to={`/singlePlayer/${_id}`}>
                   <button className="btn btn-primary">Submit</button>
                 </Link>
               </tr>
