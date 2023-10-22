@@ -27,7 +27,7 @@ const Home = () => {
             <th>D</th>
             <th>L</th>
             <th>GA</th>
-            <th>GF</th>
+            <th>GD</th>
             <th>PTS</th>
             <th></th>
           </tr>
@@ -35,7 +35,21 @@ const Home = () => {
         <tbody>
           {/* Mapping through players array and rendering each player */}
           {players.map((player, index) => {
-            const { name, dateOfBirth, img, _id } = player;
+            const {
+              name,
+              dateOfBirth,
+              img,
+              _id,
+              PTS,
+              PL,
+              winCounter,
+              drawCounter,
+              loseCounter,
+              GoalDifference,
+              GoalsAgainst,
+              role,
+            } = player;
+            const isAdmin = role === "admin";
             return (
               <tr key={index}>
                 <td>{index + 1}</td>
@@ -60,18 +74,16 @@ const Home = () => {
                     </div>
                   </div>
                 </td>
-                <td>0</td>
-                <td>0</td>
-                <th>0</th>
-                <th>0</th>
-                <th>0</th>
-                <th>0</th>
-                <th>0</th>
-                <th>
-                  <Link to={`/singlePlayer/${_id}`}>
-                    <button className="btn btn-primary">Submit</button>
-                  </Link>
-                </th>
+                <td>{PL || 0}</td>
+                <td>{winCounter || 0}</td>
+                <th>{drawCounter || 0}</th>
+                <th>{loseCounter || 0}</th>
+                <th>{GoalsAgainst || 0}</th>
+                <th>{GoalDifference || 0}</th>
+                <th>{PTS || 0}</th>
+                <Link to={`/singlePlayer/${_id}`}>
+                  <button className="btn btn-primary">Submit</button>
+                </Link>
               </tr>
             );
           })}

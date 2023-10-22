@@ -38,7 +38,7 @@ const ResultSubmit = () => {
 
     console.log(applyDetails)
 
-    const url = `http://localhost:5000/updatePlayer/${data._id}`;
+    const url = `https://bss-backend.vercel.app/updatePlayer/${data._id}`;
     fetch(url, {
       method: "PATCH",
       headers: {
