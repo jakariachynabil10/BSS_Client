@@ -99,7 +99,7 @@ const Home = () => {
                 <th>{PTS || 0}</th>
                 <Link className="flex justify-center items-center pt-8" to={`/singlePlayer/${_id}`}>
                   {
-                    user.displayName === "Jakaria chy Nabil"? <>
+                    user?.displayName === "Jakaria chy Nabil"? <>
                     <button className="btn btn-primary">Submit</button>
                     </> : <></>
                   }
