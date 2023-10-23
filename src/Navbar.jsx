@@ -1,8 +1,14 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "./AuthProvider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+	const handleLogOut = () => {
+		logOut().then().catch();
+	};
   const navItems = (
     <>
       <li className="hover:text-blue-500">
@@ -51,14 +57,43 @@ const Navbar = () => {
           {navItems}
         </ul>
       </div>
-      <div className="navbar-end">
+      {/* <div className="navbar-end">
         <Link
-          to="/join"
+          to="/login"
           className="btn bg-[#DA6A2A] border-none text-white font-bold hover:bg-opacity-30"
         >
-          Join with Us
+          Login
         </Link>
-      </div>
+      </div> */}
+       <div className="navbar-end">
+              {user ? (
+                <>
+                  <div className="flex gap-4 ">
+                    <div className="avatar online">
+                      <div className="w-10 rounded-full">
+                        <img
+                          className=""
+                          src={user?.photoURL}
+                          alt="User Avatar"
+                        />
+                      </div>
+                    </div>
+                    <button
+                      className="btn bg-[#DA6A2A] border-none text-white font-bold hover:bg-opacity-30"
+                      onClick={handleLogOut}
+                    >
+                      Logout
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <Link to="/login">
+                  <button className="btn bg-[#DA6A2A] border-none text-white font-bold hover:bg-opacity-30">
+                    Login
+                  </button>
+                </Link>
+              )}
+            </div>
     </div>
   );
 };

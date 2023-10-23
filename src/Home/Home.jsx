@@ -1,9 +1,15 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ResultSubmit from "../Submit/ResultSubmit";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Home = () => {
+  const { user, loading } = useContext(AuthContext);
+  // console.log(user.displayName);
+// 
+ 
+
   const [players, setPlayers] = useState([]);
   useEffect(() => {
     fetch("https://bss-backend.vercel.app/allPlayers")
@@ -13,6 +19,16 @@ const Home = () => {
         setPlayers(data);
       });
   }, []);
+
+  if (loading) {
+    return (
+      <div className=" flex  justify-center">
+        <span className=" w-96 loading loading-dots "></span>
+        <span className="  w-96 loading loading-dots "></span>
+        <span className="loading loading-dots  w-96"></span>
+      </div>
+    );
+  }
 
   return (
     <div className="overflow-x-auto">
@@ -82,8 +98,13 @@ const Home = () => {
                 <th>{GoalDifference || 0}</th>
                 <th>{PTS || 0}</th>
                 <Link className="flex justify-center items-center pt-8" to={`/singlePlayer/${_id}`}>
-                  <button className="btn btn-primary">Submit</button>
+                  {
+                    user.displayName === "Jakaria chy Nabil"? <>
+                    <button className="btn btn-primary">Submit</button>
+                    </> : <></>
+                  }
                 </Link>
+               
               </tr>
             );
           })}
